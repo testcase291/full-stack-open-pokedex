@@ -5,6 +5,9 @@ on:
     branches:
       - master
       # note that your "main" branch might be called main instead of master
+  pull_request:
+    branches: [master]
+    types: [opened, synchronize]
 
 jobs:
   simple_deployment_pipeline:
@@ -35,3 +38,4 @@ jobs:
           heroku_email: "betafoundt@gmail.com"
           healthCheck: "https://limitless-sierra-35534.herokuapp.com/health"
           checkstring: "ok"
+          rollbackonhealthcheckfailed: true
